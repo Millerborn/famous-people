@@ -4,7 +4,7 @@ import './Famous-Person.css';
 class Famous extends Component {
 
     state = { 
-        user: {
+        person: {
           name: '',
           role: ''
         }
@@ -13,23 +13,28 @@ class Famous extends Component {
     handleChangeFor = (propertyName) => {
         return (event) => {
           this.setState( { 
-            user: {
-              ...this.state.user,
+            person: {
+              ...this.state.person,
               [propertyName]: event.target.value 
             }
           } );
         }
       }
 
+    buttonSubmit = (event) => {
+        console.log(this.state.person);     
+    }
+
   render() {
     return (
         <section>
         <input onChange={ this.handleChangeFor('name') } placeholder="name"/>
         <input onChange={ this.handleChangeFor('role') } placeholder="role"/>
-        <p>{this.state.user.name}, is famous for {this.state.user.role}</p>
+        <input onClick={this.buttonSubmit} type="submit" value="Submit"></input>
+        <p>{this.state.person.name}, is famous for {this.state.person.role}</p>
         </section>
-    );
-  }
+    );    
+  }  
 }
 
 export default Famous;
