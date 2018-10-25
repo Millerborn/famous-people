@@ -9,7 +9,7 @@ class FamousList extends Component {
           <h2>All Famous People</h2>
           <ul>
             { this.props.list.map( ( people, index ) => 
-            <li key={index}>The {people.name} for their role in {people.role}.</li>
+            <li key={index}>{people.name} is famous for their role in {people.role}.</li>
           ) }
           </ul>
         </section>

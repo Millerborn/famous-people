@@ -3,6 +3,7 @@ import './App.css';
 import Header from '../Header/Header';
 import FamousList from '../FamousList/FamousList';
 import FamousForm from '../FamousForm/FamousForm';
+import FamousPerson from '../FamousPerson/FamousPerson';
 
 
 class App extends Component {
@@ -43,6 +44,7 @@ class App extends Component {
         <FamousForm submitPerson={this.submitPerson} 
             handleChangeFor={this.handleChangeFor} 
             newPerson={this.state.newPerson} />
+        <FamousPerson newPerson={this.state.newPerson} />
         <FamousList list={this.state.famousList} />
       </div>
     );
