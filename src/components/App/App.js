@@ -4,6 +4,9 @@ import Header from '../Header/Header';
 import FamousList from '../FamousList/FamousList';
 import FamousForm from '../FamousForm/FamousForm';
 import FamousPerson from '../FamousPerson/FamousPerson';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import Home from '../Home/Home'
+
 
 
 class App extends Component {
@@ -39,14 +42,26 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Header />
-        <FamousForm submitPerson={this.submitPerson} 
-            handleChangeFor={this.handleChangeFor} 
-            newPerson={this.state.newPerson} />
-        <FamousPerson newPerson={this.state.newPerson} />
-        <FamousList list={this.state.famousList} />
-      </div>
+      <Router>
+        <div>
+          <Header />
+            <nav>
+              <ul id="linkNav">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
+              </ul>
+            </nav>
+          
+          <Route exact path="/" component={Home} />
+          
+          <FamousForm submitPerson={this.submitPerson} 
+              handleChangeFor={this.handleChangeFor} 
+              newPerson={this.state.newPerson} 
+          />
+          <FamousPerson newPerson={this.state.newPerson} />
+          <FamousList list={this.state.famousList} />
+        </div>
+      </Router>
     );
   }
 }
